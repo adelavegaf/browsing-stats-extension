@@ -9,7 +9,7 @@ const aliases = {
         asteroid.loginWithPassword({username: action.username, password: action.password});
         return {type: 'SET_STATUS', status: 'LOADING'}
     },
-    'LOG_OUT': (action) => {
+    'LOG_OUT': () => {
         asteroid.logout();
         return {type: 'SET_STATUS', status: 'LOADING'}
     }

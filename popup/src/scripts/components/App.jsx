@@ -1,6 +1,4 @@
 import React, {Component} from 'react';
-import {connect} from 'react-redux';
-import {logIn, logOut} from '../../actions/index';
 
 class App extends Component {
     constructor(props) {
@@ -25,21 +23,4 @@ class App extends Component {
     }
 }
 
-const mapStateToProps = (state) => {
-    return {
-        status: state.status
-    };
-};
-
-const mapDispatchToProps = (dispatch) => {
-    return {
-        onLogIn: () => {
-            dispatch(logIn());
-        },
-        onLogOut: () => {
-            dispatch(logOut());
-        }
-    };
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(App);
+export default App;

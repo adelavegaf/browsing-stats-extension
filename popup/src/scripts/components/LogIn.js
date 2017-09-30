@@ -17,6 +17,7 @@ class LogIn extends Component {
                 <input type="text" placeholder="username" ref={(input) => this.usernameInput = input}/>
                 <input type="password" placeholder="password" ref={(input) => this.passwordInput = input}/>
                 <button onClick={() => this.getAccountInfoAndLogIn()}>Log In</button>
+                <span>{this.props.authenticationError}</span>
             </div>
         )
     }

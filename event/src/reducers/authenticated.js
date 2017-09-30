@@ -1,9 +1,9 @@
-const initialState = 'LOGGED_OUT';
+const initialState = false;
 
 export default (state = initialState, action) => {
     switch (action.type) {
-        case 'SET_STATUS':
-            return action.status;
+        case 'SET_AUTHENTICATED_STATUS':
+            return action.authenticated;
         default:
             return state;
     }

@@ -7,19 +7,14 @@ class App extends Component {
     }
 
     render() {
-        console.log(this.props.status);
-        switch (this.props.status) {
-            case 'LOADING':
-                return (<div>Loading</div>);
-            case 'LOGGED_IN':
-                return (
-                    <div>
-                        <button onClick={() => this.props.onLogOut()}>Log Out</button>
-                    </div>
-                );
-            case 'LOGGED_OUT':
-            default:
-                return <LogInContainer/>;
+        if (this.props.authenticated) {
+            return (
+                <div>
+                    <button onClick={() => this.props.onLogOut()}>Log Out</button>
+                </div>
+            );
+        } else {
+            return <LogInContainer/>;
         }
     }
 }

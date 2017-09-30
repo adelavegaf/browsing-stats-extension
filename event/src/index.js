@@ -15,7 +15,13 @@ const aliases = {
         return (dispatch) => {
             asteroid.loginWithPassword({username: action.username, password: action.password})
                     .then(() => {
-                        dispatch({type: 'SET_STATUS', status: 'LOGGED_IN'});
+                        dispatch({type: 'SET_AUTHENTICATED_STATUS', authenticated: true});
+                    })
+                    .catch(() => {
+                        dispatch({
+                            type: 'SET_AUTHENTICATION_ERROR',
+                            authenticationError: 'Incorrect username or password'
+                        });
                     });
         }
     },
@@ -23,7 +29,7 @@ const aliases = {
         return (dispatch) => {
             asteroid.logout()
                     .then(() => {
-                        dispatch({type: 'SET_STATUS', status: 'LOGGED_OUT'});
+                        dispatch({type: 'SET_AUTHENTICATED_STATUS', authenticated: false});
                     });
         }
     }

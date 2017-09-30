@@ -1,4 +1,5 @@
 import Api from './api';
+import DomainVisitListeners from '../domain_visits/DomainVisitListeners';
 
 const aliases = {
     'LOG_IN': (action) => {
@@ -19,12 +20,17 @@ const aliases = {
         return (dispatch) => {
             Api.logout()
                .then(() => {
+                   DomainVisitListeners.stop();
                    dispatch({type: 'SET_AUTHENTICATED_STATUS', authenticated: false});
                });
         }
     },
     'SET_EXTENSION_ENABLED': (action) => {
-        // if true add all listeners, otherwise remove them all.
+        if (action.extensionEnabled) {
+            DomainVisitListeners.start();
+        } else {
+            DomainVisitListeners.stop();
+        }
         return action;
     }
 };

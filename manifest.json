@@ -15,9 +15,18 @@
   },
   "content_scripts": [
     {
-      "matches": ["*://*/*"],
+      "matches": [
+        "*://*/*"
+      ],
       "css": [],
-      "js": ["content.js"]
+      "js": [
+        "content.js"
+      ]
     }
+  ],
+  "permissions": [
+    "activeTab",
+    "storage",
+    "tabs"
   ]
 }

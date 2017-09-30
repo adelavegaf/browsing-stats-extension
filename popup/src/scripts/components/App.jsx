@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import LogInContainer from '../containers/LogInContainer';
 
 class App extends Component {
     constructor(props) {
@@ -6,19 +7,19 @@ class App extends Component {
     }
 
     render() {
+        console.log(this.props.status);
         switch (this.props.status) {
-            case 'LOGGED_OUT':
-                return (
-                    <div>
-                        <button onClick={() => this.props.onLogIn()}>Log In</button>
-                    </div>);
-                break;
-            default:
+            case 'LOADING':
+                return (<div>Loading</div>);
+            case 'LOGGED_IN':
                 return (
                     <div>
                         <button onClick={() => this.props.onLogOut()}>Log Out</button>
                     </div>
                 );
+            case 'LOGGED_OUT':
+            default:
+                return <LogInContainer/>;
         }
     }
 }

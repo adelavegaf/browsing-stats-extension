@@ -1,8 +1,8 @@
-export const logIn = () => {
+export const logIn = (username, password) => {
     return {
         type: 'LOG_IN',
-        username: 'adelavega',
-        password: 'example'
+        username: username,
+        password: password
     };
 };
 

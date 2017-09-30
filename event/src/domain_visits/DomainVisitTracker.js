@@ -5,13 +5,12 @@ export default class DomainVisitTracker {
         this.currentDomainVisit = null;
     }
 
-    onNoWebsiteFocus() {
-        this.updateTimeSpentOnVisit();
-        this.removeVisit();
-    }
-
     onURLChange(newUrl) {
         const currentURL = new URL(newUrl);
+        if (!currentURL.protocol.includes('http')) {
+            this.onNoWebsiteFocus();
+            return;
+        }
         if (this.currentDomainVisit && currentURL.hostname === this.currentDomainVisit.hostname) {
             return;
         }
@@ -19,9 +18,13 @@ export default class DomainVisitTracker {
         this.currentDomainVisit = new DomainVisit(currentURL.hostname);
     }
 
+    onNoWebsiteFocus() {
+        this.updateTimeSpentOnVisit();
+        this.removeVisit();
+    }
+
     updateTimeSpentOnVisit() {
         if (this.currentDomainVisit) {
-            console.log('increasing time spent on', this.currentDomainVisit.hostname);
             this.currentDomainVisit.increaseTimeSpent();
         }
     }

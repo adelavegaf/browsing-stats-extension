@@ -1,20 +1,13 @@
-export const logInAndEnable = () => {
+export const logIn = () => {
     return {
-        type: 'SET_STATUS',
-        status: 'LOGGED_IN_ENABLED'
-    };
-};
-
-export const logInAndDisable = () => {
-    return {
-        type: 'SET_STATUS',
-        status: 'LOGGED_IN_DISABLED'
+        type: 'LOG_IN',
+        username: 'adelavega',
+        password: 'example'
     };
 };
 
 export const logOut = () => {
     return {
-        type: 'SET_STATUS',
-        status: 'LOGGED_OUT'
+        type: 'LOG_OUT'
     };
 };

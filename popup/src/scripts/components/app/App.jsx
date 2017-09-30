@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-import {logInAndEnable, logOut} from '../../actions/index';
+import {logIn, logOut} from '../../actions/index';
 
 class App extends Component {
     constructor(props) {
@@ -12,13 +12,13 @@ class App extends Component {
             case 'LOGGED_OUT':
                 return (
                     <div>
-                        <button onClick={this.props.onLogIn}>Log In</button>
+                        <button onClick={() => this.props.onLogIn()}>Log In</button>
                     </div>);
                 break;
             default:
                 return (
                     <div>
-                        <button onClick={this.props.onLogOut}>Log Out</button>
+                        <button onClick={() => this.props.onLogOut()}>Log Out</button>
                     </div>
                 );
         }
@@ -34,7 +34,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
     return {
         onLogIn: () => {
-            dispatch(logInAndEnable());
+            dispatch(logIn());
         },
         onLogOut: () => {
             dispatch(logOut());

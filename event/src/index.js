@@ -32,6 +32,10 @@ const aliases = {
                         dispatch({type: 'SET_AUTHENTICATED_STATUS', authenticated: false});
                     });
         }
+    },
+    'SET_EXTENSION_ENABLED': (action) => {
+        // if true add all listeners, otherwise remove them all.
+        return action;
     }
 };
 

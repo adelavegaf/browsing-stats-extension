@@ -11,3 +11,10 @@ export const logOut = () => {
         type: 'LOG_OUT'
     };
 };
+
+export const setExtensionEnabled = (extensionEnabled) => {
+    return {
+        type: 'SET_EXTENSION_ENABLED',
+        extensionEnabled: extensionEnabled
+    };
+};

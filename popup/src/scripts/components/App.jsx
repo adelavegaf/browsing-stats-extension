@@ -1,18 +1,11 @@
 import React, {Component} from 'react';
 import LogInContainer from '../containers/LogInContainer';
+import ConfigurationContainer from '../containers/ConfigurationContainer';
 
 class App extends Component {
-    constructor(props) {
-        super(props);
-    }
-
     render() {
         if (this.props.authenticated) {
-            return (
-                <div>
-                    <button onClick={() => this.props.onLogOut()}>Log Out</button>
-                </div>
-            );
+            return <ConfigurationContainer/>;
         } else {
             return <LogInContainer/>;
         }

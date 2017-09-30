@@ -1,0 +1,23 @@
+{
+  "manifest_version": 2,
+  "name": "Browsing Stats",
+  "description": "Chrome extension that keeps track of the URLs you visit.",
+  "version": "0.0.0.1",
+  "background": {
+    "scripts": [
+      "event.js"
+    ],
+    "persistent": false
+  },
+  "browser_action": {
+    "default_title": "Browsing Stats",
+    "default_popup": "popup.html"
+  },
+  "content_scripts": [
+    {
+      "matches": ["*://*/*"],
+      "css": [],
+      "js": ["content.js"]
+    }
+  ]
+}

@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
+import {logInAndEnable, logOut} from '../../actions/index';
 
 class App extends Component {
     constructor(props) {
@@ -7,11 +8,20 @@ class App extends Component {
     }
 
     render() {
-        return (
-            <div>
-                App status: {this.props.status}
-            </div>
-        );
+        switch (this.props.status) {
+            case 'LOGGED_OUT':
+                return (
+                    <div>
+                        <button onClick={this.props.onLogIn}>Log In</button>
+                    </div>);
+                break;
+            default:
+                return (
+                    <div>
+                        <button onClick={this.props.onLogOut}>Log Out</button>
+                    </div>
+                );
+        }
     }
 }
 
@@ -21,4 +31,15 @@ const mapStateToProps = (state) => {
     };
 };
 
-export default connect(mapStateToProps)(App);
+const mapDispatchToProps = (dispatch) => {
+    return {
+        onLogIn: () => {
+            dispatch(logInAndEnable());
+        },
+        onLogOut: () => {
+            dispatch(logOut());
+        }
+    };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);

@@ -9,7 +9,7 @@ class App extends Component {
     render() {
         return (
             <div>
-                Click Count: {this.props.count}
+                App status: {this.props.status}
             </div>
         );
     }
@@ -17,7 +17,7 @@ class App extends Component {
 
 const mapStateToProps = (state) => {
     return {
-        count: state.count
+        status: state.status
     };
 };
 

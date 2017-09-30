@@ -1,7 +1,7 @@
 import {combineReducers} from 'redux';
 
-import count from './count';
+import status from './status';
 
 export default combineReducers({
-  count
+    status
 });

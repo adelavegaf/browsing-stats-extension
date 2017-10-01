@@ -8,15 +8,4 @@ const mapStateToProps = (state) => {
     };
 };
 
-const mapDispatchToProps = (dispatch) => {
-    return {
-        onLogIn: () => {
-            dispatch(logIn());
-        },
-        onLogOut: () => {
-            dispatch(logOut());
-        }
-    };
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(App);
+export default connect(mapStateToProps)(App);

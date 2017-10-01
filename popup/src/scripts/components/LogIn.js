@@ -1,22 +1,22 @@
 import React, {Component} from 'react';
+import TextField from 'material-ui/TextField';
+import RaisedButton from 'material-ui/RaisedButton';
 
 class LogIn extends Component {
-    constructor(props) {
-        super(props);
-    }
-
-    getAccountInfoAndLogIn() {
-        const username = this.usernameInput.value;
-        const password = this.passwordInput.value;
-        this.props.onLogIn(username, password);
-    }
-
     render() {
         return (
             <div>
-                <input type="text" placeholder="username" ref={(input) => this.usernameInput = input}/>
-                <input type="password" placeholder="password" ref={(input) => this.passwordInput = input}/>
-                <button onClick={() => this.getAccountInfoAndLogIn()}>Log In</button>
+                <TextField type="text"
+                           floatingLabelText="Username"
+                           floatingLabelFixed={true}
+                           value={this.props.username}
+                           onChange={(e) => this.props.onUserNameChange(e.target.value)}/>
+                <TextField type="password"
+                           floatingLabelText="Password"
+                           floatingLabelFixed={true}
+                           value={this.props.password}
+                           onChange={(e) => this.props.onPasswordChange(e.target.value)}/>
+                <RaisedButton label="Log In" onClick={() => this.props.onLogIn()}/>
                 <span>{this.props.authenticationError}</span>
             </div>
         )

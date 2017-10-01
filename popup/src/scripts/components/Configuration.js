@@ -1,12 +1,14 @@
 import React, {Component} from 'react';
+import Toggle from 'material-ui/Toggle';
 
 class Configuration extends Component {
 
     render() {
         return (
             <div>
-                The extension is {this.props.extensionEnabled ? 'enabled' : 'disabled'}
-                <button onClick={() => this.props.onSetExtensionEnabled(true)}>Toggle</button>
+                <Toggle label={this.props.extensionEnabled ? 'Disable tracking' : 'Enable tracking'}
+                        toggled={this.props.extensionEnabled}
+                        onToggle={(event, enabled) => this.props.onSetExtensionEnabled(enabled)}/>
             </div>
         )
     }

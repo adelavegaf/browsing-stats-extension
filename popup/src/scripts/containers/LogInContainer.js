@@ -26,6 +26,7 @@ class LogInContainer extends Component {
 
     render() {
         return React.createElement(LogIn, {
+            authenticationError: this.props.authenticationError,
             onUserNameChange: (value) => this.onUserNameChange(value),
             onPasswordChange: (value) => this.onPasswordChange(value),
             onLogIn: () => this.onLogIn()

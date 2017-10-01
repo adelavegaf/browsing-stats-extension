@@ -9,15 +9,16 @@ class LogIn extends Component {
                 <TextField type="text"
                            floatingLabelText="Username"
                            floatingLabelFixed={true}
+                           errorText={this.props.authenticationError}
                            value={this.props.username}
                            onChange={(e) => this.props.onUserNameChange(e.target.value)}/>
                 <TextField type="password"
                            floatingLabelText="Password"
                            floatingLabelFixed={true}
+                           errorText={this.props.authenticationError}
                            value={this.props.password}
                            onChange={(e) => this.props.onPasswordChange(e.target.value)}/>
                 <RaisedButton label="Log In" onClick={() => this.props.onLogIn()}/>
-                <span>{this.props.authenticationError}</span>
             </div>
         )
     }

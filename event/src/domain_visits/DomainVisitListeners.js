@@ -31,6 +31,10 @@ export default class DomainVisitListeners {
         chrome.alarms.clear(DOMAIN_TRACKER_ALARM);
     }
 
+    static onAlarm() {
+        domainVisitTracker.updateTimeSpentOnVisit();
+    }
+
     static onTabActivated() {
         this.getCurrentUrl();
     }
@@ -50,11 +54,9 @@ export default class DomainVisitListeners {
     static getCurrentUrl() {
         chrome.tabs.query({'active': true, 'lastFocusedWindow': true}, activeTabs => {
             const [activeTab] = activeTabs;
-            domainVisitTracker.onURLChange(activeTab.url);
+            if (activeTab) {
+                domainVisitTracker.onURLChange(activeTab.url);
+            }
         });
-    }
-
-    static onAlarm() {
-        domainVisitTracker.updateTimeSpentOnVisit();
     }
 }

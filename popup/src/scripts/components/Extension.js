@@ -4,6 +4,7 @@ import ConfigurationContainer from '../containers/ConfigurationContainer';
 import Paper from 'material-ui/Paper';
 import {BottomNavigation, BottomNavigationItem} from 'material-ui/BottomNavigation';
 import FontIcon from 'material-ui/FontIcon';
+import StatisticsContainer from '../containers/StatisticsContainer';
 
 const settingsIcon = <FontIcon className="material-icons">settings</FontIcon>;
 const chartIcon = <FontIcon className="material-icons">bubble_chart</FontIcon>;
@@ -43,6 +44,7 @@ export default class Extension extends Component {
             case 'stats':
                 return (
                     <div>
+                        <StatisticsContainer/>
                         {this.getBottomNav()}
                     </div>
                 );

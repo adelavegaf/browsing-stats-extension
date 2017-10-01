@@ -4,25 +4,25 @@ import DomainVisitListeners from '../domain_visits/DomainVisitListeners';
 const aliases = {
     'LOG_IN': (action) => {
         return (dispatch) => {
-            Api.login(action.username, action.password)
-               .then(() => {
-                   dispatch({type: 'SET_AUTHENTICATED_STATUS', authenticated: true});
-               })
-               .catch(() => {
-                   dispatch({
-                       type: 'SET_AUTHENTICATION_ERROR',
-                       authenticationError: 'Incorrect username or password'
-                   });
-               });
+            return Api.login(action.username, action.password)
+                      .then(() => {
+                          return dispatch({type: 'SET_AUTHENTICATED_STATUS', authenticated: true});
+                      })
+                      .catch(() => {
+                          return dispatch({
+                              type: 'SET_AUTHENTICATION_ERROR',
+                              authenticationError: 'Incorrect username or password'
+                          });
+                      });
         }
     },
     'LOG_OUT': () => {
         return (dispatch) => {
-            Api.logout()
-               .then(() => {
-                   DomainVisitListeners.stop();
-                   dispatch({type: 'SET_AUTHENTICATED_STATUS', authenticated: false});
-               });
+            return Api.logout()
+                      .then(() => {
+                          DomainVisitListeners.stop();
+                          return dispatch({type: 'SET_AUTHENTICATED_STATUS', authenticated: false});
+                      });
         }
     },
     'SET_EXTENSION_ENABLED': (action) => {

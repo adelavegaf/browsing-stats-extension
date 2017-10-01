@@ -6,7 +6,7 @@ class Configuration extends Component {
     render() {
         return (
             <div>
-                <Toggle label={this.props.extensionEnabled ? 'Disable tracking' : 'Enable tracking'}
+                <Toggle label={this.props.extensionEnabled ? 'Tracking Enabled' : 'Tracking Disabled'}
                         toggled={this.props.extensionEnabled}
                         onToggle={(event, enabled) => this.props.onSetExtensionEnabled(enabled)}/>
             </div>

@@ -1,18 +1,18 @@
 import React, {Component} from 'react';
 import LogInContainer from '../containers/LogInContainer';
-import ConfigurationContainer from '../containers/ConfigurationContainer';
+import ExtensionContainer from '../containers/ExtensionContainer';
 import AppBar from 'material-ui/AppBar';
 
 class App extends Component {
     render() {
         const toolbar = (
-            <AppBar title="Browsing Stats" showMenuIconButton={false}/>
+            <AppBar title="WebStats" showMenuIconButton={false}/>
         );
         if (this.props.authenticated) {
             return (
                 <div>
                     {toolbar}
-                    <ConfigurationContainer/>
+                    <ExtensionContainer/>
                 </div>
             );
         } else {

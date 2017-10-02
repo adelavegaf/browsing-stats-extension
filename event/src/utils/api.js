@@ -16,11 +16,15 @@ export default class Api {
         return asteroid.logout();
     }
 
-    static addVisit(domain, dateAccessedTimestamp, timeSpent) {
-        return asteroid.call('visits.insert', domain, dateAccessedTimestamp, timeSpent);
+    static addVisit(domain, dateAccessed, timeSpent) {
+        return asteroid.call('visits.insert', domain, dateAccessed, timeSpent);
     }
 
     static increaseTimeSpentOnVisit(id, timeSpent) {
         return asteroid.call('visits.update', id, timeSpent);
+    }
+
+    static getTimeSpentSince(date) {
+        return asteroid.call('visits.timeSpentSince', date);
     }
 }

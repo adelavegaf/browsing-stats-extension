@@ -2,15 +2,12 @@ import Api from '../utils/api';
 
 export default class DomainVisit {
     constructor(hostname) {
-        const currentTime = new Date().getTime();
-
         this.id = null;
         this.hostname = hostname;
-        this.dateAccessedTimestamp = currentTime;
-        this.lastUpdateTimestamp = currentTime;
+        this.lastUpdateDate = new Date();
         this.timeSpent = 0;
 
-        Api.addVisit(this.hostname, this.dateAccessedTimestamp, this.timeSpent)
+        Api.addVisit(this.hostname, this.timeSpent)
            .then(id => {
                this.id = id;
            })
@@ -20,12 +17,12 @@ export default class DomainVisit {
     }
 
     increaseTimeSpent() {
-        const currentTime = new Date().getTime();
-        this.timeSpent = currentTime - this.lastUpdateTimestamp;
-        this.lastUpdateTimestamp = currentTime;
+        const currentTime = new Date();
+        this.timeSpent = currentTime - this.lastUpdateDate;
+        this.lastUpdateDate = currentTime;
         Api.increaseTimeSpentOnVisit(this.id, this.timeSpent)
            .then(() => {
-               console.log('time spent on', this.hostname, 'was updated');
+               console.log('time spent on', this.hostname, 'was updated by', this.timeSpent, 'ms');
            })
            .catch(error => {
                console.error(error);

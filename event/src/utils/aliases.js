@@ -6,7 +6,10 @@ const aliases = {
         return (dispatch) => {
             return Api.login(action.username, action.password)
                       .then(() => {
-                          return dispatch({type: 'SET_AUTHENTICATED_STATUS', authenticated: true});
+                          return dispatch({
+                              type: 'SET_AUTHENTICATION_LOADING',
+                              authenticationLoading: true
+                          });
                       })
                       .catch(() => {
                           return dispatch({
@@ -21,7 +24,10 @@ const aliases = {
             return Api.logout()
                       .then(() => {
                           DomainVisitListeners.stop();
-                          return dispatch({type: 'SET_AUTHENTICATED_STATUS', authenticated: false});
+                          return dispatch({
+                              type: 'SET_AUTHENTICATION_LOADING',
+                              authenticationLoading: true
+                          });
                       });
         }
     },

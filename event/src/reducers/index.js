@@ -22,6 +22,17 @@ function authenticationError(state = initialAuthenticationErrorState, action) {
     }
 }
 
+const initialAuthenticationLoadingState = false;
+
+function authenticationLoading(state = initialAuthenticationLoadingState, action) {
+    switch (action.type) {
+        case 'SET_AUTHENTICATION_LOADING':
+            return action.authenticationLoading;
+        default:
+            return state;
+    }
+}
+
 const initialExtensionEnabledState = false;
 
 function extensionEnabled(state = initialExtensionEnabledState, action) {
@@ -36,5 +47,6 @@ function extensionEnabled(state = initialExtensionEnabledState, action) {
 export default combineReducers({
     authenticated,
     authenticationError,
+    authenticationLoading,
     extensionEnabled
 });

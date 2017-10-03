@@ -16,6 +16,14 @@ export default class Api {
         return asteroid.logout();
     }
 
+    static onLogIn(callback) {
+        asteroid.on('loggedIn', callback);
+    }
+
+    static onLogOut(callback) {
+        asteroid.on('loggedOut', callback);
+    }
+
     static addVisit(domain, dateAccessed, timeSpent) {
         return asteroid.call('visits.insert', domain, dateAccessed, timeSpent);
     }

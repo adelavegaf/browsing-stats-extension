@@ -5,6 +5,7 @@ import aliases from './utils/aliases';
 import thunk from 'redux-thunk';
 import Api from './utils/api';
 import {throttle} from 'lodash';
+import DomainVisitListeners from './domain_visits/DomainVisitListeners';
 
 chrome.storage.local.get(['state'], ({state}) => {
     const store = createStore(
@@ -20,6 +21,12 @@ chrome.storage.local.get(['state'], ({state}) => {
         portName: 'browsing-stats'
     });
 
+    /**
+     * Start tracking if it was enabled in the past.
+     */
+    if (state.extensionEnabled) {
+        DomainVisitListeners.start();
+    }
     /**
      * Save the current store state to local storage
      */

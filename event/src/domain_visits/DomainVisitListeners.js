@@ -13,7 +13,7 @@ export default class DomainVisitListeners {
         domainVisitTracker = new DomainVisitTracker();
         onTabActivatedListener = () => this.onTabActivated();
         onTabUpdatedListener = () => this.onTabUpdated();
-        onWindowFocusChangedListener = () => this.onWindowFocusChanged();
+        onWindowFocusChangedListener = (windowId) => this.onWindowFocusChanged(windowId);
         onAlarmListener = () => this.onAlarm();
         chrome.tabs.onActivated.addListener(onTabActivatedListener);
         chrome.tabs.onUpdated.addListener(onTabUpdatedListener);

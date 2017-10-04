@@ -44,9 +44,21 @@ function extensionEnabled(state = initialExtensionEnabledState, action) {
     }
 }
 
+const initialTodayPercentagesState = [];
+
+function todayPercentages(state = initialTodayPercentagesState, action) {
+    switch (action.type) {
+        case 'SET_TODAY_PERCENTAGES':
+            return action.todayPercentages;
+        default:
+            return state;
+    }
+}
+
 export default combineReducers({
     authenticated,
     authenticationError,
     authenticationLoading,
-    extensionEnabled
+    extensionEnabled,
+    todayPercentages,
 });

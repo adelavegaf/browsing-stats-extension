@@ -1,5 +1,6 @@
 import Api from './api';
 import DomainVisitListeners from '../domain_visits/DomainVisitListeners';
+import Statistics from './statistics';
 
 const aliases = {
     'LOG_IN': (action) => {
@@ -38,6 +39,21 @@ const aliases = {
             DomainVisitListeners.stop();
         }
         return action;
+    },
+    'UPDATE_TODAY_PERCENTAGES': () => {
+        return (dispatch) => {
+            return Statistics.getTodayTopFivePercentages()
+                             .then(percentages => {
+                                 return dispatch({
+                                     type: 'SET_TODAY_PERCENTAGES',
+                                     todayPercentages: percentages
+                                 });
+                             })
+                             .catch(error => {
+                                 console.error(error);
+                                 return dispatch({});
+                             });
+        }
     }
 };
 

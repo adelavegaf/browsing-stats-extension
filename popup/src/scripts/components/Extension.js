@@ -6,12 +6,12 @@ import {BottomNavigation, BottomNavigationItem} from 'material-ui/BottomNavigati
 import FontIcon from 'material-ui/FontIcon';
 import StatisticsContainer from '../containers/StatisticsContainer';
 import {Card, CardText} from 'material-ui';
+import './Extension.css';
 
 const settingsIcon = <FontIcon className="material-icons">settings</FontIcon>;
 const chartIcon = <FontIcon className="material-icons">bubble_chart</FontIcon>;
 
 const cardStyle = {
-    'height': '260px',
     'marginTop': '10px',
     'marginBottom': '10px'
 };
@@ -57,7 +57,16 @@ export default class Extension extends Component {
                     <div>
                         <Card style={cardStyle}>
                             <CardText>
+                                <div className="card-title">
+                                    <span>Websites You Have Spent The Most Time On Today</span>
+                                </div>
                                 <StatisticsContainer/>
+                                <div className="card-footer">
+                                    <span>
+                                        For advanced statistics visit our <a href="https://webdrain.herokuapp.com"
+                                                                             target="_blank"> web app</a>
+                                    </span>
+                                </div>
                             </CardText>
                         </Card>
                         {this.getBottomNav()}

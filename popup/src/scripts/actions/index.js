@@ -18,3 +18,9 @@ export const setExtensionEnabled = (extensionEnabled) => {
         extensionEnabled: extensionEnabled
     };
 };
+
+export const updateTodayPercentages = () => {
+    return {
+        type: 'UPDATE_TODAY_PERCENTAGES'
+    };
+};

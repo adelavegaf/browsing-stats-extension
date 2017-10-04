@@ -22,12 +22,17 @@ const muiTheme = getMuiTheme({
         accent3Color: '#c79400',
     }
 });
-
-render(
-    <Provider store={proxyStore}>
-        <MuiThemeProvider muiTheme={muiTheme}>
-            <AppContainer/>
-        </MuiThemeProvider>
-    </Provider>,
-    document.getElementById('app')
-);
+/**
+ * HACK
+ * TODO(adelavega): Find another way to stop chrome resizing from calculating incorrect width and height.
+ */
+setTimeout(() => {
+    render(
+        <Provider store={proxyStore}>
+            <MuiThemeProvider muiTheme={muiTheme}>
+                <AppContainer/>
+            </MuiThemeProvider>
+        </Provider>,
+        document.getElementById('app')
+    );
+}, 100);

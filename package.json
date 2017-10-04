@@ -1,8 +1,9 @@
 {
-  "name": "Browsing Stats",
+  "name": "web-drain",
   "version": "0.0.1",
   "private": true,
-  "description": "",
+  "description": "Chrome extension that tracks which URLs you visit in order to provide statistics.",
+  "license": "MIT",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },

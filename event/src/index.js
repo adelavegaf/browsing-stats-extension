@@ -24,7 +24,7 @@ chrome.storage.local.get(['state'], ({state}) => {
     /**
      * Start tracking if it was enabled in the past.
      */
-    if (state && state.extensionEnabled) {
+    if (state && state.authenticated && state.extensionEnabled) {
         DomainVisitListeners.start();
     }
     /**
@@ -47,10 +47,12 @@ chrome.storage.local.get(['state'], ({state}) => {
     Api.onLogIn(() => {
         store.dispatch({type: 'SET_AUTHENTICATED_STATUS', authenticated: true});
         store.dispatch({type: 'SET_AUTHENTICATION_LOADING', authenticationLoading: false});
+        store.dispatch({type: 'SET_AUTHENTICATION_ERROR', authenticationError: ''});
     });
 
     Api.onLogOut(() => {
         store.dispatch({type: 'SET_AUTHENTICATED_STATUS', authenticated: false});
         store.dispatch({type: 'SET_AUTHENTICATION_LOADING', authenticationLoading: false});
+        store.dispatch({type: 'SET_AUTHENTICATION_ERROR', authenticationError: ''});
     });
 });

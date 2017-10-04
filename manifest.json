@@ -1,7 +1,7 @@
 {
   "manifest_version": 2,
   "name": "Web Drain",
-  "description": "Chrome extension that keeps track of the URLs you visit.",
+  "description": "Chrome extension that keeps track of the URLs you visit to provide statistics.",
   "version": "0.0.0.1",
   "background": {
     "scripts": [
@@ -10,7 +10,7 @@
     "persistent": false
   },
   "browser_action": {
-    "default_title": "WebDrain",
+    "default_title": "Web Drain",
     "default_popup": "popup.html"
   },
   "content_scripts": [

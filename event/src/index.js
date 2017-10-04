@@ -44,6 +44,12 @@ chrome.storage.local.get(['state'], ({state}) => {
     const throttledSave = throttle(saveState, 5000, {trailing: true, leading: true});
     store.subscribe(throttledSave);
 
+    chrome.runtime.onMessageExternal.addListener((request, sender, sendResponse) => {
+        if (request.checkExtension) {
+            sendResponse(store.getState());
+        }
+    });
+
     Api.onLogIn(() => {
         store.dispatch({type: 'SET_AUTHENTICATED_STATUS', authenticated: true});
         store.dispatch({type: 'SET_AUTHENTICATION_LOADING', authenticationLoading: false});

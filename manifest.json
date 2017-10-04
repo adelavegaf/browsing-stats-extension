@@ -29,5 +29,10 @@
     "alarms",
     "storage",
     "tabs"
-  ]
+  ],
+  "externally_connectable": {
+    "matches": [
+      "*://webdrain.herokuapp.com/*"
+    ]
+  }
 }

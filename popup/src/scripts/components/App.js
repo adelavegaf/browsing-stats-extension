@@ -2,11 +2,29 @@ import React, {Component} from 'react';
 import LogInContainer from '../containers/LogInContainer';
 import ExtensionContainer from '../containers/ExtensionContainer';
 import AppBar from 'material-ui/AppBar';
+import {FlatButton} from 'material-ui';
+
+const titleStyle = {
+    'fontWeight': 300,
+    'fontSize': '32px'
+};
 
 class App extends Component {
+
+    getLogOutButton() {
+        return (
+            <FlatButton label="Logout" onClick={() => this.props.onLogOut()}/>
+        );
+    }
+
     render() {
         const toolbar = (
-            <AppBar title="WebStats" showMenuIconButton={false}/>
+            <AppBar
+                title="WEB DRAIN"
+                showMenuIconButton={false}
+                titleStyle={titleStyle}
+                iconElementRight={this.props.authenticated ? this.getLogOutButton() : <div/>}
+            />
         );
         if (this.props.authenticated) {
             return (

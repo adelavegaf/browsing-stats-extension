@@ -5,9 +5,16 @@ import Paper from 'material-ui/Paper';
 import {BottomNavigation, BottomNavigationItem} from 'material-ui/BottomNavigation';
 import FontIcon from 'material-ui/FontIcon';
 import StatisticsContainer from '../containers/StatisticsContainer';
+import {Card, CardText} from 'material-ui';
 
 const settingsIcon = <FontIcon className="material-icons">settings</FontIcon>;
 const chartIcon = <FontIcon className="material-icons">bubble_chart</FontIcon>;
+
+const cardStyle = {
+    'height': '260px',
+    'marginTop': '10px',
+    'marginBottom': '10px'
+};
 
 export default class Extension extends Component {
 
@@ -17,7 +24,7 @@ export default class Extension extends Component {
                 <Paper zDepth={1}>
                     <BottomNavigation selectedIndex={this.props.selectedComponentIndex}>
                         <BottomNavigationItem
-                            label="Stats"
+                            label="Statistics"
                             icon={chartIcon}
                             onClick={() => this.props.onSelectedComponentChange('stats', 0)}
                         />
@@ -37,14 +44,22 @@ export default class Extension extends Component {
             case 'settings':
                 return (
                     <div>
-                        <ConfigurationContainer/>
+                        <Card style={cardStyle}>
+                            <CardText>
+                                <ConfigurationContainer/>
+                            </CardText>
+                        </Card>
                         {this.getBottomNav()}
                     </div>
                 );
             case 'stats':
                 return (
                     <div>
-                        <StatisticsContainer/>
+                        <Card style={cardStyle}>
+                            <CardText>
+                                <StatisticsContainer/>
+                            </CardText>
+                        </Card>
                         {this.getBottomNav()}
                     </div>
                 );

@@ -3,7 +3,7 @@ import {createClass} from 'asteroid';
 const Asteroid = createClass();
 
 const asteroid = new Asteroid({
-    endpoint: 'ws://localhost:3000/websocket'
+    endpoint: 'ws://webdrain.herokuapp.com/websocket'
 });
 
 export default class Api {

@@ -24,7 +24,7 @@ chrome.storage.local.get(['state'], ({state}) => {
     /**
      * Start tracking if it was enabled in the past.
      */
-    if (state.extensionEnabled) {
+    if (state && state.extensionEnabled) {
         DomainVisitListeners.start();
     }
     /**

@@ -9,7 +9,6 @@ let onAlarmListener = null;
 
 export default class DomainVisitListeners {
     static start() {
-        this.stop();
         domainVisitTracker = new DomainVisitTracker();
         onTabActivatedListener = () => this.onTabActivated();
         onTabUpdatedListener = () => this.onTabUpdated();

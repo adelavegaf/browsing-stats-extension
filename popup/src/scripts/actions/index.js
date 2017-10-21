@@ -12,13 +12,6 @@ export const logOut = () => {
     };
 };
 
-export const setExtensionEnabled = (extensionEnabled) => {
-    return {
-        type: 'SET_EXTENSION_ENABLED',
-        extensionEnabled: extensionEnabled
-    };
-};
-
 export const updateTodayPercentages = () => {
     return {
         type: 'UPDATE_TODAY_PERCENTAGES'

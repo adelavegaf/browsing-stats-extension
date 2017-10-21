@@ -1,5 +1,4 @@
 import Api from './api';
-import DomainVisitListeners from '../domain_visits/DomainVisitListeners';
 import Statistics from './statistics';
 
 const aliases = {
@@ -24,21 +23,12 @@ const aliases = {
         return (dispatch) => {
             return Api.logout()
                       .then(() => {
-                          DomainVisitListeners.stop();
                           return dispatch({
                               type: 'SET_AUTHENTICATION_LOADING',
                               authenticationLoading: true
                           });
                       });
         }
-    },
-    'SET_EXTENSION_ENABLED': (action) => {
-        if (action.extensionEnabled) {
-            DomainVisitListeners.start();
-        } else {
-            DomainVisitListeners.stop();
-        }
-        return action;
     },
     'UPDATE_TODAY_PERCENTAGES': () => {
         return (dispatch) => {

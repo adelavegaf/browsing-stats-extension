@@ -51,12 +51,14 @@ chrome.storage.local.get(['state'], ({state}) => {
     });
 
     Api.onLogIn(() => {
+        DomainVisitListeners.start();
         store.dispatch({type: 'SET_AUTHENTICATED_STATUS', authenticated: true});
         store.dispatch({type: 'SET_AUTHENTICATION_LOADING', authenticationLoading: false});
         store.dispatch({type: 'SET_AUTHENTICATION_ERROR', authenticationError: ''});
     });
 
     Api.onLogOut(() => {
+        DomainVisitListeners.stop();
         store.dispatch({type: 'SET_AUTHENTICATED_STATUS', authenticated: false});
         store.dispatch({type: 'SET_AUTHENTICATION_LOADING', authenticationLoading: false});
         store.dispatch({type: 'SET_AUTHENTICATION_ERROR', authenticationError: ''});

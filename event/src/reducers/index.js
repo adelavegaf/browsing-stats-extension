@@ -33,17 +33,6 @@ function authenticationLoading(state = initialAuthenticationLoadingState, action
     }
 }
 
-const initialExtensionEnabledState = false;
-
-function extensionEnabled(state = initialExtensionEnabledState, action) {
-    switch (action.type) {
-        case 'SET_EXTENSION_ENABLED':
-            return action.extensionEnabled;
-        default:
-            return state;
-    }
-}
-
 const initialTodayPercentagesState = [];
 
 function todayPercentages(state = initialTodayPercentagesState, action) {
@@ -59,6 +48,5 @@ export default combineReducers({
     authenticated,
     authenticationError,
     authenticationLoading,
-    extensionEnabled,
     todayPercentages,
 });

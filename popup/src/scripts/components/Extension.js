@@ -46,6 +46,9 @@ export default class Extension extends Component {
                     <div>
                         <Card style={cardStyle}>
                             <CardText>
+                                <div className="card-title">
+                                    <span>Add an Incentive</span>
+                                </div>
                                 <ConfigurationContainer/>
                             </CardText>
                         </Card>

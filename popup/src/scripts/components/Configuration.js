@@ -30,9 +30,9 @@ class Configuration extends Component {
                                  floatingLabelText="Time"
                                  fullWidth={true}
                                  onChange={(e, k, value) => this.props.onTimeChange(value)}>
-                        <MenuItem value="30" primaryText="30m"/>
-                        <MenuItem value="60" primaryText="60m"/>
-                        <MenuItem value="120" primaryText="120m"/>
+                        <MenuItem value="30" primaryText="30 minutes"/>
+                        <MenuItem value="60" primaryText="60 minutes"/>
+                        <MenuItem value="120" primaryText="120 minutes"/>
                     </SelectField>
                 </div>
                 <div>

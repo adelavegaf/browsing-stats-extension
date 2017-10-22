@@ -3,6 +3,7 @@ import LogInContainer from '../containers/LogInContainer';
 import ExtensionContainer from '../containers/ExtensionContainer';
 import AppBar from 'material-ui/AppBar';
 import {FlatButton} from 'material-ui';
+import ButtonStyles from '../utils/ButtonStyles';
 
 const titleStyle = {
     'fontWeight': 300,
@@ -13,7 +14,9 @@ class App extends Component {
 
     getLogOutButton() {
         return (
-            <FlatButton label="Logout" onClick={() => this.props.onLogOut()}/>
+            <FlatButton label="Log Out"
+                        labelStyle={ButtonStyles.getFlatButtonStyle()}
+                        onClick={() => this.props.onLogOut()}/>
         );
     }
 

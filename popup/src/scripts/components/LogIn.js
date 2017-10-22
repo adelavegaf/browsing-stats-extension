@@ -3,6 +3,7 @@ import TextField from 'material-ui/TextField';
 import RaisedButton from 'material-ui/RaisedButton';
 import {Card, CardText} from 'material-ui';
 import './LogIn.css';
+import ButtonStyles from '../utils/ButtonStyles';
 
 class LogIn extends Component {
     render() {
@@ -31,7 +32,11 @@ class LogIn extends Component {
                                            onChange={(e) => this.props.onPasswordChange(e.target.value)}/>
                             </div>
                             <div className="center">
-                                <RaisedButton label="Log In" secondary={true} onClick={() => this.props.onLogIn()}/>
+                                <RaisedButton
+                                    label="Log In"
+                                    secondary={true}
+                                    labelStyle={ButtonStyles.getSecondaryButtonStyles()}
+                                    onClick={() => this.props.onLogIn()}/>
                             </div>
                             <div className="register-prompt">
                                 Don't have an account? <a href="https://webdrain.herokuapp.com" target="_blank">

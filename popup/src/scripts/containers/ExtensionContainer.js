@@ -6,7 +6,7 @@ export default class ExtensionContainer extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            extensionComponent: 'stats',
+            extensionComponent: 'statistics',
             selectedComponentIndex: 0
         };
     }

@@ -1,4 +1,5 @@
 import Api from '../utils/api';
+import GoalTracker from '../goals/GoalTracker';
 
 export default class DomainVisit {
     constructor(hostname) {
@@ -22,6 +23,9 @@ export default class DomainVisit {
             Api.increaseTimeSpentOnVisit(this.id, timeSpent)
                .then(() => {
                    console.info('time spent on', this.hostname, 'was updated by', timeSpent, 'ms');
+               })
+               .then(() => {
+                   GoalTracker.trackGoal(this.hostname);
                })
                .catch(error => {
                    console.error(error);

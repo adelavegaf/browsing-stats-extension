@@ -4,7 +4,7 @@ import {
     TableRowColumn
 } from 'material-ui';
 import './Goals.css';
-import TimeUtils from '../utils/TimeUtils';
+import TimeUtils from '../../../../utils/TimeUtils';
 
 const removeButtonStyle = {
     padding: 0,

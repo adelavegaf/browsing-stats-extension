@@ -2,8 +2,8 @@ import React, {Component} from 'react';
 import {RaisedButton, SelectField, TextField, MenuItem} from 'material-ui';
 import './Configuration.css';
 import ButtonStyles from '../utils/ButtonStyles';
-import {ONE_HUNDRED_TWENTY_MINUTES_IN_MS, SIXTY_MINUTES_IN_MS, THIRTY_MINUTES_IN_MS} from '../utils/TimeUtils';
-import TimeUtils from '../utils/TimeUtils';
+import {ONE_HUNDRED_TWENTY_MINUTES_IN_MS, SIXTY_MINUTES_IN_MS, THIRTY_MINUTES_IN_MS} from '../../../../utils/TimeUtils';
+import TimeUtils from '../../../../utils/TimeUtils';
 
 class Configuration extends Component {
 

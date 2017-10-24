@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import Configuration from '../components/Configuration';
 import {connect} from 'react-redux';
 import {addGoal} from '../actions/index';
-import {THIRTY_MINUTES_IN_MS} from '../utils/TimeUtils';
+import {THIRTY_MINUTES_IN_MS} from '../../../../utils/TimeUtils';
 
 class ConfigurationContainer extends Component {
     constructor(props) {

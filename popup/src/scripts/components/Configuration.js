@@ -16,7 +16,7 @@ class Configuration extends Component {
                     <span className="placeholder">{this.props.domain ? this.props.domain : 'www.example.com'}</span>
                     <span> each day</span>
                 </div>
-                <div>
+                <div className="settings-font">
                     <SelectField value={this.props.quantifier}
                                  floatingLabelText="Quantifier"
                                  fullWidth={true}
@@ -25,7 +25,7 @@ class Configuration extends Component {
                         <MenuItem value="more than" primaryText="more than"/>
                     </SelectField>
                 </div>
-                <div>
+                <div className="settings-font">
                     <SelectField value={this.props.time}
                                  floatingLabelText="Time"
                                  fullWidth={true}
@@ -35,7 +35,7 @@ class Configuration extends Component {
                         <MenuItem value="120" primaryText="120 minutes"/>
                     </SelectField>
                 </div>
-                <div>
+                <div className="settings-font">
                     <TextField floatingLabelText="Domain"
                                floatingLabelFixed={true}
                                hintText="www.example.com"

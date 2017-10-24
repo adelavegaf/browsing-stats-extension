@@ -91,7 +91,7 @@ export default class Extension extends Component {
                         <Card style={cardStyle}>
                             <CardText>
                                 <div className="card-title">
-                                    <span>Add a Goal</span>
+                                    <span>Add a New Goal</span>
                                 </div>
                                 <ConfigurationContainer/>
                             </CardText>

@@ -5,6 +5,14 @@
     margin-top: 15px;
 }
 
+.goals-functionality-text {
+    font-weight: 300;
+    color: #737976;
+    text-align: center;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
 .placeholder {
     color: rgb(85, 26, 139);
 }

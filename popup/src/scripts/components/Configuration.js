@@ -42,6 +42,9 @@ class Configuration extends Component {
                                fullWidth={true}
                                onChange={(e, value) => this.props.onDomainChange(value)}/>
                 </div>
+                <div className="goals-functionality-text">
+                    <span>We will send notifications throughout the day to tell you about your goal's status</span>
+                </div>
                 <div className="center">
                     <RaisedButton label="Add" secondary={true} labelStyle={ButtonStyles.getSecondaryButtonStyles()}/>
                 </div>

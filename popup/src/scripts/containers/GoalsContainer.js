@@ -1,8 +1,8 @@
 import React, {Component} from 'react';
-import Incentives from '../components/Incentives';
+import Goals from '../components/Goals';
 
 
-export default class IncentivesContainer extends Component {
+export default class GoalsContainer extends Component {
     constructor(props) {
         super(props);
         // TODO(adelavega): create loading state.
@@ -18,7 +18,7 @@ export default class IncentivesContainer extends Component {
     }
 
     render() {
-        return React.createElement(Incentives, {
+        return React.createElement(Goals, {
             goals: this.state.goals
         });
     }

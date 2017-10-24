@@ -7,10 +7,10 @@ import FontIcon from 'material-ui/FontIcon';
 import StatisticsContainer from '../containers/StatisticsContainer';
 import {Card, CardText} from 'material-ui';
 import './Extension.css';
-import IncentivesContainer from '../containers/IncentivesContainer';
+import GoalsContainer from '../containers/GoalsContainer';
 
 const chartIcon = <FontIcon className="material-icons">bubble_chart</FontIcon>;
-const incentivesIcon = <FontIcon className="material-icons">trending_up</FontIcon>
+const goalsIcon = <FontIcon className="material-icons">trending_up</FontIcon>
 const settingsIcon = <FontIcon className="material-icons">settings</FontIcon>;
 
 const cardStyle = {
@@ -31,9 +31,9 @@ export default class Extension extends Component {
                             onClick={() => this.props.onSelectedComponentChange('statistics', 0)}
                         />
                         <BottomNavigationItem
-                            label="Incentives"
-                            icon={incentivesIcon}
-                            onClick={() => this.props.onSelectedComponentChange('incentives', 1)}
+                            label="Goals"
+                            icon={goalsIcon}
+                            onClick={() => this.props.onSelectedComponentChange('goals', 1)}
                         />
                         <BottomNavigationItem
                             label="Settings"
@@ -68,7 +68,7 @@ export default class Extension extends Component {
                         {this.getBottomNav()}
                     </div>
                 );
-            case 'incentives':
+            case 'goals':
                 return (
                     <div>
                         <Card style={cardStyle}>
@@ -76,7 +76,7 @@ export default class Extension extends Component {
                                 <div className="card-title">
                                     <span>Domain Usage Daily Goals Tracker</span>
                                 </div>
-                                <IncentivesContainer/>
+                                <GoalsContainer/>
                                 <div className="card-footer">
                                     Head over to the settings tab to add new goals.
                                 </div>
@@ -91,7 +91,7 @@ export default class Extension extends Component {
                         <Card style={cardStyle}>
                             <CardText>
                                 <div className="card-title">
-                                    <span>Add an Incentive</span>
+                                    <span>Add a Goal</span>
                                 </div>
                                 <ConfigurationContainer/>
                             </CardText>

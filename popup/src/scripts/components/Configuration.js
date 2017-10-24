@@ -7,7 +7,7 @@ class Configuration extends Component {
     render() {
         return (
             <div>
-                <div className="incentive-text">
+                <div className="goals-text">
                     <span>I want to spend </span>
                     <span className="placeholder">{this.props.quantifier}</span>
                     <span> </span>

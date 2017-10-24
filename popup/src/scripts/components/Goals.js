@@ -1,8 +1,8 @@
 import React, {Component} from 'react';
 import {Table, TableBody, TableHeader, TableHeaderColumn, TableRow, TableRowColumn} from 'material-ui';
-import './Incentives.css';
+import './Goals.css';
 
-export default class Incentives extends Component {
+export default class Goals extends Component {
 
 
     getTableRows() {

@@ -44,6 +44,47 @@ const aliases = {
                                  return dispatch({});
                              });
         }
+    },
+    'ADD_GOAL': (action) => {
+        return (dispatch) => {
+            return Api.addGoal(action.hostname, action.quantifier, action.timeGoal)
+                      .then(() => {
+                          return dispatch({});
+                      })
+                      .catch(error => {
+                          console.error(error);
+                          return dispatch({});
+                      });
+        }
+    },
+    'REMOVE_GOAL': (action) => {
+        return (dispatch) => {
+            return Api.removeGoal(action.goalId)
+                      .then(() => {
+                          return dispatch({});
+                      })
+                      .catch(error => {
+                          console.error(error);
+                          return dispatch({});
+                      })
+        }
+    },
+    'GET_GOALS_STATUS': () => {
+        return (dispatch) => {
+            const sinceDate = new Date();
+            sinceDate.setHours(0, 0, 0, 0);
+            return Api.getGoalsStatus(sinceDate)
+                      .then((goalStatus) => {
+                          return dispatch({
+                              type: 'SET_GOALS_STATUS',
+                              goalsStatus: goalStatus
+                          });
+                      })
+                      .catch(error => {
+                          console.error(error);
+                          return dispatch({});
+                      })
+        }
     }
 };
 

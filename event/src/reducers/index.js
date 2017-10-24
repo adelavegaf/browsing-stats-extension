@@ -44,9 +44,21 @@ function todayPercentages(state = initialTodayPercentagesState, action) {
     }
 }
 
+const initialGoalsStatusState = [];
+
+function goalsStatus(state = initialGoalsStatusState, action) {
+    switch (action.type) {
+        case 'SET_GOALS_STATUS':
+            return action.goalsStatus;
+        default:
+            return state;
+    }
+}
+
 export default combineReducers({
     authenticated,
     authenticationError,
     authenticationLoading,
     todayPercentages,
+    goalsStatus
 });

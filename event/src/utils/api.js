@@ -35,4 +35,16 @@ export default class Api {
     static getTimeSpentSince(offset) {
         return asteroid.call('visits.timeSpentSince', null /* sinceDate*/, offset);
     }
+
+    static addGoal(hostname, quantifier, timeGoal) {
+        return asteroid.call('addGoal', hostname, quantifier, timeGoal);
+    }
+
+    static removeGoal(id) {
+        return asteroid.call('removeGoal', id);
+    }
+
+    static getGoalsStatus(sinceDate) {
+        return asteroid.call('getGoalsStatus', sinceDate);
+    }
 }

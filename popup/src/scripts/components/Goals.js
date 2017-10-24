@@ -4,6 +4,7 @@ import {
     TableRowColumn
 } from 'material-ui';
 import './Goals.css';
+import TimeUtils from '../utils/TimeUtils';
 
 const removeButtonStyle = {
     padding: 0,
@@ -19,17 +20,23 @@ export default class Goals extends Component {
 
 
     getTableRows() {
-        return this.props.goals.map((goal, index) => {
+        return this.props.goalsStatus.map((goal) => {
             return (
-                <TableRow key={index} className={goal.isFailing ? 'failing-goal-row' : ''}>
+                <TableRow key={goal._id} className={goal.isFailing ? 'failing-goal-row' : ''}>
                     <TableRowColumn className="remove-icon-column">
-                        <IconButton iconStyle={removeIconStyle} style={removeButtonStyle}>
+                        <IconButton iconStyle={removeIconStyle}
+                                    style={removeButtonStyle}
+                                    onClick={() => this.props.onRemoveGoal(goal._id)}>
                             <FontIcon className="material-icons" color="#790000">close</FontIcon>
                         </IconButton>
                     </TableRowColumn>
-                    <TableRowColumn className="domain-column goals-column">{goal.domain}</TableRowColumn>
-                    <TableRowColumn className="goals-column">{goal.timeSpent / 60000}m</TableRowColumn>
-                    <TableRowColumn className="goals-column">{goal.quantifier} {goal.timeGoal / 60000}m</TableRowColumn>
+                    <TableRowColumn className="domain-column goals-column">{goal.hostname}</TableRowColumn>
+                    <TableRowColumn className="goals-column">
+                        {TimeUtils.getTimeInMinFromMs(goal.timeSpent).toFixed(0)}m
+                    </TableRowColumn>
+                    <TableRowColumn className="goals-column">
+                        {goal.quantifier} {TimeUtils.getTimeInMinFromMs(goal.timeGoal)}m
+                    </TableRowColumn>
                 </TableRow>
             );
         });
@@ -66,7 +73,7 @@ export default class Goals extends Component {
     render() {
         return (
             <div>
-                {this.props.goals.length === 0 ? this.getNoGoalsMessage() : this.getTable()}
+                {this.props.goalsStatus.length === 0 ? this.getNoGoalsMessage() : this.getTable()}
             </div>
         );
     }

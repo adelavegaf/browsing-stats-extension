@@ -1,25 +1,36 @@
 import React, {Component} from 'react';
 import Goals from '../components/Goals';
+import {getGoalsStatus, removeGoal} from '../actions/index';
+import {connect} from 'react-redux';
 
-
-export default class GoalsContainer extends Component {
-    constructor(props) {
-        super(props);
-        // TODO(adelavega): create loading state.
-        const goals = [];
-        goals.push({domain: 'leetcode.com', timeSpent: 1800000, timeGoal: 3600000, quantifier: '>', isFailing: true});
-        for (let i = 0; i < 20; i++) {
-            goals.push(
-                {domain: 'facebook.com', timeSpent: 1800000, timeGoal: 3600000, quantifier: '<', isFailing: false});
-        }
-        this.state = {
-            goals: goals
-        };
+class GoalsContainer extends Component {
+    componentDidMount() {
+        this.props.getGoalsStatus();
     }
 
     render() {
         return React.createElement(Goals, {
-            goals: this.state.goals
+            goalsStatus: this.props.goalsStatus,
+            onRemoveGoal: this.props.removeGoal
         });
     }
 }
+
+const mapStateToProps = (state) => {
+    return {
+        goalsStatus: state.goalsStatus
+    };
+};
+
+const mapDispatchToProps = (dispatch) => {
+    return {
+        getGoalsStatus: (sinceDate) => {
+            dispatch(getGoalsStatus(sinceDate));
+        },
+        removeGoal: (id) => {
+            dispatch(removeGoal(id));
+        }
+    };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(GoalsContainer);

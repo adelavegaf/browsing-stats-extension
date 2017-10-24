@@ -1,13 +1,15 @@
 import React, {Component} from 'react';
 import Configuration from '../components/Configuration';
 import {connect} from 'react-redux';
+import {addGoal} from '../actions/index';
+import {THIRTY_MINUTES_IN_MS} from '../utils/TimeUtils';
 
 class ConfigurationContainer extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            quantifier: 'less than',
-            time: '30',
+            quantifier: '<',
+            time: THIRTY_MINUTES_IN_MS,
             domain: ''
         };
     }
@@ -24,6 +26,10 @@ class ConfigurationContainer extends Component {
         this.setState({time: time});
     }
 
+    onAddGoal() {
+        this.props.addGoal(this.state.domain, this.state.quantifier, this.state.time);
+    }
+
     render() {
         return React.createElement(Configuration, {
             quantifier: this.state.quantifier,
@@ -31,7 +37,8 @@ class ConfigurationContainer extends Component {
             domain: this.state.domain,
             onDomainChange: (domain) => this.onDomainChange(domain),
             onQuantifierChange: (quantifier) => this.onQuantifierChange(quantifier),
-            onTimeChange: (time) => this.onTimeChange(time)
+            onTimeChange: (time) => this.onTimeChange(time),
+            onAddGoal: () => this.onAddGoal()
         });
     }
 }
@@ -41,7 +48,11 @@ const mapStateToProps = (state) => {
 };
 
 const mapDispatchToProps = (dispatch) => {
-    return {};
+    return {
+        addGoal: (hostname, quantifier, timeGoal) => {
+            dispatch(addGoal(hostname, quantifier, timeGoal));
+        }
+    };
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(ConfigurationContainer);

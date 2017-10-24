@@ -7,7 +7,7 @@ export default class IncentivesContainer extends Component {
         super(props);
         // TODO(adelavega): create loading state.
         this.state = {
-            goals: [{domain: 'facebook.com', timeSpent: 1800000, timeGoal: 3600000}]
+            goals: [{domain: 'facebook.com', timeSpent: 1800000, timeGoal: 3600000, quantifier: '<'}]
         };
     }
 

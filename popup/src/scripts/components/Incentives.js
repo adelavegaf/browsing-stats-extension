@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import {Table, TableBody, TableHeader, TableHeaderColumn, TableRow, TableRowColumn} from 'material-ui';
+import './Incentives.css';
 
 export default class Incentives extends Component {
 
@@ -8,9 +9,9 @@ export default class Incentives extends Component {
         return this.props.goals.map((goal) => {
             return (
                 <TableRow>
-                    <TableRowColumn>{goal.domain}</TableRowColumn>
-                    <TableRowColumn>{goal.timeSpent / 60000}m</TableRowColumn>
-                    <TableRowColumn>{goal.quantifier} {goal.timeGoal / 60000}m</TableRowColumn>
+                    <TableRowColumn className="domain-column goals-column">{goal.domain}</TableRowColumn>
+                    <TableRowColumn className="goals-column">{goal.timeSpent / 60000}m</TableRowColumn>
+                    <TableRowColumn className="goals-column">{goal.quantifier} {goal.timeGoal / 60000}m</TableRowColumn>
                 </TableRow>
             );
         });
@@ -21,9 +22,9 @@ export default class Incentives extends Component {
             <Table>
                 <TableHeader displaySelectAll={false} adjustForCheckbox={false}>
                     <TableRow>
-                        <TableHeaderColumn>Domain</TableHeaderColumn>
-                        <TableHeaderColumn>Time Spent</TableHeaderColumn>
-                        <TableHeaderColumn>Goal</TableHeaderColumn>
+                        <TableHeaderColumn className="domain-column goals-column">Domain</TableHeaderColumn>
+                        <TableHeaderColumn className="goals-column">Time Spent</TableHeaderColumn>
+                        <TableHeaderColumn className="goals-column">Goal</TableHeaderColumn>
                     </TableRow>
                 </TableHeader>
                 <TableBody displayRowCheckbox={false}>

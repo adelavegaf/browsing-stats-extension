@@ -4,3 +4,13 @@
     text-align: center;
     margin-top: 15px;
 }
+
+.goals-column {
+    text-align: center !important;
+    padding-left: 5px !important;
+    padding-right: 5px !important;
+}
+
+.domain-column {
+    width: 180px !important;
+}

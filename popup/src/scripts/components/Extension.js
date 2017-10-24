@@ -10,7 +10,7 @@ import './Extension.css';
 import GoalsContainer from '../containers/GoalsContainer';
 
 const chartIcon = <FontIcon className="material-icons">bubble_chart</FontIcon>;
-const goalsIcon = <FontIcon className="material-icons">trending_up</FontIcon>
+const goalsIcon = <FontIcon className="material-icons">trending_up</FontIcon>;
 const settingsIcon = <FontIcon className="material-icons">settings</FontIcon>;
 
 const cardStyle = {

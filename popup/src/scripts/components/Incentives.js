@@ -6,9 +6,9 @@ export default class Incentives extends Component {
 
 
     getTableRows() {
-        return this.props.goals.map((goal) => {
+        return this.props.goals.map((goal, index) => {
             return (
-                <TableRow>
+                <TableRow key={index} className={goal.isFailing ? 'failing-goal-row' : ''}>
                     <TableRowColumn className="domain-column goals-column">{goal.domain}</TableRowColumn>
                     <TableRowColumn className="goals-column">{goal.timeSpent / 60000}m</TableRowColumn>
                     <TableRowColumn className="goals-column">{goal.quantifier} {goal.timeGoal / 60000}m</TableRowColumn>
@@ -19,18 +19,20 @@ export default class Incentives extends Component {
 
     getTable() {
         return (
-            <Table>
-                <TableHeader displaySelectAll={false} adjustForCheckbox={false}>
-                    <TableRow>
-                        <TableHeaderColumn className="domain-column goals-column">Domain</TableHeaderColumn>
-                        <TableHeaderColumn className="goals-column">Time Spent</TableHeaderColumn>
-                        <TableHeaderColumn className="goals-column">Goal</TableHeaderColumn>
-                    </TableRow>
-                </TableHeader>
-                <TableBody displayRowCheckbox={false}>
-                    {this.getTableRows()}
-                </TableBody>
-            </Table>
+            <div>
+                <Table height="250px">
+                    <TableHeader displaySelectAll={false} adjustForCheckbox={false}>
+                        <TableRow>
+                            <TableHeaderColumn className="domain-column goals-column">Domain</TableHeaderColumn>
+                            <TableHeaderColumn className="goals-column">Time Spent</TableHeaderColumn>
+                            <TableHeaderColumn className="goals-column">Goal</TableHeaderColumn>
+                        </TableRow>
+                    </TableHeader>
+                    <TableBody displayRowCheckbox={false}>
+                        {this.getTableRows()}
+                    </TableBody>
+                </Table>
+            </div>
         );
     }
 

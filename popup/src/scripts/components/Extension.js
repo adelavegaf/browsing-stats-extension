@@ -74,7 +74,7 @@ export default class Extension extends Component {
                         <Card style={cardStyle}>
                             <CardText>
                                 <div className="card-title">
-                                    <span>Domain usage daily goals</span>
+                                    <span>Domain Usage Daily Goals Tracker</span>
                                 </div>
                                 <IncentivesContainer/>
                                 <div className="card-footer">

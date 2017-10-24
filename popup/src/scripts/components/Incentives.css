@@ -14,3 +14,7 @@
 .domain-column {
     width: 180px !important;
 }
+
+.failing-goal-row {
+    background-color: rgba(255, 0, 0, 0.11);
+}

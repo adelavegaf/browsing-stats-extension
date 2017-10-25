@@ -44,7 +44,7 @@ export default class GoalTracker {
     static trackGoal(hostname) {
         const sinceDate = new Date();
         sinceDate.setHours(0, 0, 0, 0);
-        Api.getGoalStatus(hostname, sinceDate)
+        Api.getGoalStatus(sinceDate, hostname)
            .then((goalStatus) => {
                const percentage = goalStatus.timeSpent / goalStatus.timeGoal * 100;
                // Each day the time spent is reset to 0. Since we update at constant intervals, we will guarantee

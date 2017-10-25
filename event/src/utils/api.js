@@ -45,10 +45,10 @@ export default class Api {
     }
 
     static getGoalsStatus(sinceDate) {
-        return asteroid.call('getGoalsStatus', sinceDate);
+        return asteroid.call('getGoalsStatus', sinceDate.toString());
     }
 
     static getGoalStatus(sinceDate, hostname) {
-        return asteroid.call('getGoalStatus', sinceDate, hostname);
+        return asteroid.call('getGoalStatus', sinceDate.toString(), hostname);
     }
 }

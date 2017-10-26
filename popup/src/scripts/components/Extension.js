@@ -15,7 +15,8 @@ const settingsIcon = <FontIcon className="material-icons">settings</FontIcon>;
 
 const cardStyle = {
     'marginTop': '10px',
-    'marginBottom': '10px'
+    'marginBottom': '10px',
+    'height': '422px'
 };
 
 export default class Extension extends Component {

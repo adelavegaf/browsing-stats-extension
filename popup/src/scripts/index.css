@@ -1,12 +1,14 @@
 body {
     font-family: 'Roboto', sans-serif !important;
     width: 400px;
+    height: 562px;
     background-color: #eee;
     margin: 0;
 }
 
 html {
     width: 400px;
+    height: 562px;
     margin: 0;
     background-color: #eee;
 }

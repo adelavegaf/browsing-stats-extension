@@ -3,13 +3,13 @@
     color: #737976;
     text-align: center;
     margin-top: 15px;
+    height: 48px;
 }
 
 .goals-functionality-text {
     font-weight: 300;
     color: #737976;
     text-align: center;
-    margin-top: 15px;
     margin-bottom: 15px;
 }
 
@@ -23,4 +23,8 @@
 
 .settings-font {
     font-weight: 300;
+}
+
+.domain-field {
+    height: 100px;
 }

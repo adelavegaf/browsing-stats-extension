@@ -42,11 +42,13 @@ class Configuration extends Component {
                         <MenuItem value={ONE_HUNDRED_TWENTY_MINUTES_IN_MS} primaryText="120 minutes"/>
                     </SelectField>
                 </div>
-                <div className="settings-font">
+                <div className="settings-font domain-field">
                     <TextField floatingLabelText="Domain"
                                floatingLabelFixed={true}
                                hintText="www.example.com"
                                fullWidth={true}
+                               value={this.props.domain}
+                               errorText={this.props.errorText}
                                onChange={(e, value) => this.props.onDomainChange(value)}/>
                 </div>
                 <div className="goals-functionality-text">

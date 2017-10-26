@@ -4,18 +4,23 @@ import {connect} from 'react-redux';
 import {addGoal} from '../actions/index';
 import {THIRTY_MINUTES_IN_MS} from '../../../../utils/TimeUtils';
 
+const MAX_NUM_DOMAIN_CHARACTERS = 52;
+
 class ConfigurationContainer extends Component {
     constructor(props) {
         super(props);
         this.state = {
             quantifier: '<',
             time: THIRTY_MINUTES_IN_MS,
-            domain: ''
+            domain: '',
+            errorText: ''
         };
     }
 
     onDomainChange(domain) {
-        this.setState({domain: domain});
+        if (domain.length <= MAX_NUM_DOMAIN_CHARACTERS) {
+            this.setState({domain: domain});
+        }
     }
 
     onQuantifierChange(quantifier) {
@@ -27,6 +32,10 @@ class ConfigurationContainer extends Component {
     }
 
     onAddGoal() {
+        if (!this.state.domain) {
+            this.setState({errorText: 'Please provide a value'});
+            return;
+        }
         this.props.addGoal(this.state.domain, this.state.quantifier, this.state.time);
     }
 
@@ -35,6 +44,7 @@ class ConfigurationContainer extends Component {
             quantifier: this.state.quantifier,
             time: this.state.time,
             domain: this.state.domain,
+            errorText: this.state.errorText,
             onDomainChange: (domain) => this.onDomainChange(domain),
             onQuantifierChange: (quantifier) => this.onQuantifierChange(quantifier),
             onTimeChange: (time) => this.onTimeChange(time),

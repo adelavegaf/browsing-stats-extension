@@ -16,7 +16,7 @@ const settingsIcon = <FontIcon className="material-icons">settings</FontIcon>;
 const cardStyle = {
     'marginTop': '10px',
     'marginBottom': '10px',
-    'height': '422px'
+    'height': '450px'
 };
 
 export default class Extension extends Component {
@@ -75,7 +75,7 @@ export default class Extension extends Component {
                         <Card style={cardStyle}>
                             <CardText>
                                 <div className="card-title">
-                                    <span>Domain Usage Daily Goals Tracker</span>
+                                    <span>Daily Goals Tracker</span>
                                 </div>
                                 <GoalsContainer/>
                                 <div className="card-footer">

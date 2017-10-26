@@ -22,7 +22,7 @@ export default class Statistics extends Component {
 
     getPieChart() {
         return (
-            <ResponsiveContainer height={300}>
+            <ResponsiveContainer height={360}>
                 <PieChart>
                     <Pie dataKey="value"
                          data={this.getPieData()}

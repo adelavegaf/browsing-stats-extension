@@ -16,6 +16,10 @@ const removeIconStyle = {
     fontSize: 18,
 };
 
+const tableStyle = {
+    backgroundColor: '#f0f0f0'
+};
+
 export default class Goals extends Component {
 
 
@@ -45,7 +49,7 @@ export default class Goals extends Component {
     getTable() {
         return (
             <div>
-                <Table height="250px" selectable={false}>
+                <Table height="300px" className="goals-table" bodyStyle={tableStyle} selectable={false}>
                     <TableHeader displaySelectAll={false} adjustForCheckbox={false}>
                         <TableRow>
                             <TableHeaderColumn className="remove-icon-column"/>

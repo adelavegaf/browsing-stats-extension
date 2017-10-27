@@ -55,10 +55,22 @@ function goalsStatus(state = initialGoalsStatusState, action) {
     }
 }
 
+const initialAddGoalStatusState = '';
+
+function addGoalStatus(state = initialAddGoalStatusState, action) {
+    switch (action.type) {
+        case 'SET_ADD_GOAL_STATUS':
+            return action.addGoalStatus;
+        default:
+            return state;
+    }
+}
+
 export default combineReducers({
     authenticated,
     authenticationError,
     authenticationLoading,
     todayPercentages,
-    goalsStatus
+    goalsStatus,
+    addGoalStatus
 });

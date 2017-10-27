@@ -27,6 +27,13 @@ export const addGoal = (hostname, quantifier, timeGoal) => {
     };
 };
 
+export const resetAddGoalStatus = () => {
+    return {
+        type: 'SET_ADD_GOAL_STATUS',
+        addGoalStatus: ''
+    };
+};
+
 export const removeGoal = (goalId) => {
     return {
         type: 'REMOVE_GOAL',

@@ -1,14 +1,31 @@
 import React, {Component} from 'react';
-import {RaisedButton, SelectField, TextField, MenuItem} from 'material-ui';
+import {RaisedButton, SelectField, TextField, MenuItem, Snackbar} from 'material-ui';
 import './Configuration.css';
 import ButtonStyles from '../utils/ButtonStyles';
 import {ONE_HUNDRED_TWENTY_MINUTES_IN_MS, SIXTY_MINUTES_IN_MS, THIRTY_MINUTES_IN_MS} from '../../../../utils/TimeUtils';
 import TimeUtils from '../../../../utils/TimeUtils';
 
+const ADD_GOAL_LOADING_STATUS = 'loading';
+const ADD_GOAL_ERROR_STATUS = 'error';
+const ADD_GOAL_SUCCESS_STATUS = 'success';
+
 class Configuration extends Component {
 
     getQuantifierInWords() {
         return this.props.quantifier === '<' ? 'less than' : 'more than';
+    }
+
+    getAddGoalStatusMessage() {
+        switch (this.props.addGoalStatus) {
+            case ADD_GOAL_LOADING_STATUS:
+                return 'Adding new goal, please wait';
+            case ADD_GOAL_SUCCESS_STATUS:
+                return 'Added new goal!';
+            case ADD_GOAL_ERROR_STATUS:
+                return 'Error: domain already has a goal';
+            default:
+                return '';
+        }
     }
 
     render() {
@@ -59,8 +76,15 @@ class Configuration extends Component {
                         label="Add"
                         secondary={true}
                         labelStyle={ButtonStyles.getSecondaryButtonStyles()}
+                        disabled={this.props.addGoalStatus === ADD_GOAL_LOADING_STATUS}
                         onClick={() => this.props.onAddGoal()}/>
                 </div>
+                <Snackbar
+                    open={this.props.addGoalStatus.length !== 0}
+                    action="close"
+                    onActionTouchTap={() => this.props.onSnackbarClose()}
+                    onRequestClose={() => this.props.onSnackbarClose()}
+                    message={this.getAddGoalStatusMessage()}/>
             </div>
         )
     }

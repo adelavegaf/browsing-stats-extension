@@ -47,13 +47,24 @@ const aliases = {
     },
     'ADD_GOAL': (action) => {
         return (dispatch) => {
+            dispatch({
+                type: 'SET_ADD_GOAL_STATUS',
+                addGoalStatus: 'loading'
+            });
             return Api.addGoal(action.hostname, action.quantifier, action.timeGoal)
                       .then(() => {
-                          return dispatch({});
+                          return dispatch({
+                              type: 'SET_ADD_GOAL_STATUS',
+                              addGoalStatus: 'success'
+                          });
                       })
                       .catch(error => {
                           console.error(error);
-                          return dispatch({});
+
+                          return dispatch({
+                              type: 'SET_ADD_GOAL_STATUS',
+                              addGoalStatus: 'error'
+                          });
                       });
         }
     },

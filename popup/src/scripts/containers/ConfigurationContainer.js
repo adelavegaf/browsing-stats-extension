@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import Configuration from '../components/Configuration';
 import {connect} from 'react-redux';
-import {addGoal} from '../actions/index';
+import {addGoal, resetAddGoalStatus} from '../actions/index';
 import {THIRTY_MINUTES_IN_MS} from '../../../../utils/TimeUtils';
 
 const MAX_NUM_DOMAIN_CHARACTERS = 52;
@@ -45,22 +45,29 @@ class ConfigurationContainer extends Component {
             time: this.state.time,
             domain: this.state.domain,
             errorText: this.state.errorText,
+            addGoalStatus: this.props.addGoalStatus,
             onDomainChange: (domain) => this.onDomainChange(domain),
             onQuantifierChange: (quantifier) => this.onQuantifierChange(quantifier),
             onTimeChange: (time) => this.onTimeChange(time),
-            onAddGoal: () => this.onAddGoal()
+            onAddGoal: () => this.onAddGoal(),
+            onSnackbarClose: () => this.props.resetAddGoalStatus()
         });
     }
 }
 
 const mapStateToProps = (state) => {
-    return {};
+    return {
+        addGoalStatus: state.addGoalStatus
+    };
 };
 
 const mapDispatchToProps = (dispatch) => {
     return {
         addGoal: (hostname, quantifier, timeGoal) => {
             dispatch(addGoal(hostname, quantifier, timeGoal));
+        },
+        resetAddGoalStatus: () => {
+            dispatch(resetAddGoalStatus());
         }
     };
 };

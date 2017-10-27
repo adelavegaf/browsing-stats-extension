@@ -3,4 +3,13 @@
     color: rgba(255, 0, 0, 0.66);
     text-align: center;
     margin-top: 15px;
+    height: 350px;
+    line-height: 350px;
+    vertical-align: middle;
+}
+
+.error-paragraph {
+    line-height: 20px;
+    display: inline-block;
+    vertical-align: middle;
 }

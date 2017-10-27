@@ -40,8 +40,11 @@ export default class Statistics extends Component {
     getNoDataMessage() {
         return (
             <div className="error-message">
-                <p>Oops seems we don't have any data to display</p>
-                <p>Visit a couple websites and check again!</p>
+                <p className="error-paragraph">
+                    Oops seems we don't have any data to display
+                    <br/>
+                    Visit a couple websites and check again!
+                </p>
             </div>
         );
     }

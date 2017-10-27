@@ -8,10 +8,16 @@ class GoalsContainer extends Component {
         this.props.getGoalsStatus();
     }
 
+    onRemoveGoal(id) {
+        const newGoals = this.props.goalsStatus.filter(goal => goal.id !== id);
+        this.setState({})
+        this.props.removeGoal(id);
+    }
+
     render() {
         return React.createElement(Goals, {
             goalsStatus: this.props.goalsStatus,
-            onRemoveGoal: this.props.removeGoal
+            onRemoveGoal: (id) => this.onRemoveGoal(id)
         });
     }
 }

@@ -1,5 +1,19 @@
 import Api from './api';
 import Statistics from './statistics';
+import Goals from './goals';
+
+function getGoalStatus(dispatch) {
+    return Goals.getDailyGoalStatus()
+                .then(goals => {
+                    return dispatch({
+                        type: 'SET_GOALS_STATUS',
+                        goalsStatus: goals
+                    });
+                })
+                .catch(error => {
+                    console.error(error);
+                });
+}
 
 const aliases = {
     'LOG_IN': (action) => {
@@ -72,29 +86,16 @@ const aliases = {
         return (dispatch) => {
             return Api.removeGoal(action.goalId)
                       .then(() => {
-                          return dispatch({});
+                          return getGoalStatus(dispatch);
                       })
                       .catch(error => {
                           console.error(error);
-                          return dispatch({});
-                      })
+                      });
         }
     },
     'GET_GOALS_STATUS': () => {
         return (dispatch) => {
-            const sinceDate = new Date();
-            sinceDate.setHours(0, 0, 0, 0);
-            return Api.getGoalsStatus(sinceDate)
-                      .then((goalStatus) => {
-                          return dispatch({
-                              type: 'SET_GOALS_STATUS',
-                              goalsStatus: goalStatus
-                          });
-                      })
-                      .catch(error => {
-                          console.error(error);
-                          return dispatch({});
-                      })
+            return getGoalStatus(dispatch);
         }
     }
 };

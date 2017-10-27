@@ -2,8 +2,9 @@ import Api from './api';
 
 export default class Statistics {
     static getTodayTopFivePercentages() {
-        const yesterdayOffset = 1;
-        return Api.getTimeSpentSince(yesterdayOffset)
+        const sinceDate = new Date();
+        sinceDate.setHours(0, 0, 0, 0);
+        return Api.getTimeSpentSince(sinceDate)
                   .then(results => {
                       const totalFrequency = results.reduce((total, cur) => total + cur.total, 0);
                       const sortedResponse = results.sort((a, b) => b.total - a.total);

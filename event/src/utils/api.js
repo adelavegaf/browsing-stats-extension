@@ -32,8 +32,8 @@ export default class Api {
         return asteroid.call('visits.update', id, timeSpent);
     }
 
-    static getTimeSpentSince(offset) {
-        return asteroid.call('visits.timeSpentSince', null /* sinceDate*/, offset);
+    static getTimeSpentSince(sinceDate) {
+        return asteroid.call('visits.timeSpentSince', sinceDate.toUTCString());
     }
 
     static addGoal(hostname, quantifier, timeGoal) {
